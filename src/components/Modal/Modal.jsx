@@ -1,5 +1,8 @@
 import { Component } from "react";
+import PropTypes from "prop-types";
+
 import css from "../Modal/Modal.module.css";
+
 export class MyModal extends Component {
   componentDidMount() {
     window.addEventListener("keydown", this.closeByKey);
@@ -37,3 +40,8 @@ export class MyModal extends Component {
     );
   }
 }
+
+MyModal.propTypes = {
+  onClose: PropTypes.func.isRequired,
+  clickedImg: PropTypes.string.isRequired,
+};

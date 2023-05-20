@@ -1,4 +1,6 @@
 import Button from "@mui/material/Button";
+import PropTypes from "prop-types";
+
 import css from "../Searchbar/Searchbar.module.css";
 
 export const Searchbar = ({ onSubmit }) => {
@@ -17,4 +19,8 @@ export const Searchbar = ({ onSubmit }) => {
       </form>
     </header>
   );
+};
+
+Searchbar.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
 };

@@ -1,6 +1,7 @@
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
 import { nanoid } from "nanoid";
+import PropTypes from "prop-types";
 
 export const ImageGallery = ({ images, openImg }) => (
   <ImageList sx={{ width: 1280, height: "auto" }} gap={10} cols={3}>
@@ -16,3 +17,11 @@ export const ImageGallery = ({ images, openImg }) => (
     ))}
   </ImageList>
 );
+
+ImageGallery.propTypes = {
+  images: PropTypes.array.isRequired,
+  openImg: PropTypes.func.isRequired,
+  id: PropTypes.string,
+  webformatURL: PropTypes.string,
+  largeImageURL: PropTypes.string,
+};
