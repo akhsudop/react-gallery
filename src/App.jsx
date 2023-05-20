@@ -1,10 +1,12 @@
 import { Component } from "react";
-import "./App.css";
 import { Searchbar } from "./components/Searchbar/Searchbar";
 import { ImageGallery } from "./components/ImageGallery/ImageGallery";
 import { MyModal } from "./components/Modal/Modal";
-import Button from "@mui/material/Button";
 import { Loader } from "./components/Loader/Loader";
+import { Notify } from "notiflix/build/notiflix-notify-aio";
+import Button from "@mui/material/Button";
+
+import "./App.css";
 
 const API_KEY = "35565772-7bd4f47208013e8d69d75afde";
 const URL = "https://pixabay.com/api/";
@@ -55,8 +57,10 @@ export class App extends Component {
         }
       })
       .then((images) => {
-        if ((images.total = 0)) {
+        if (!images.total) {
           console.log("Did found anything :(");
+          Notify.warning("Nothing found for this selection, try again");
+          this.setState({ isLoading: false });
         } else {
           const selectedProperties = images.hits.map(
             ({ id, webformatURL, largeImageURL }) => {
