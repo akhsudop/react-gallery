@@ -85,6 +85,7 @@ export class App extends Component {
         images: [],
         isLoading: true,
         page: 1,
+        totalHits: null,
       });
       this.fetchImgs();
     } else if (page !== prevState.page) {
