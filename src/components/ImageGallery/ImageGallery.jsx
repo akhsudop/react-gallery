@@ -8,7 +8,7 @@ export const ImageGallery = ({ images, openImg }) => (
     {images.map(({ id, webformatURL, largeImageURL }) => (
       <ImageListItem key={nanoid()} onClick={() => openImg(largeImageURL)}>
         <img
-          style={{ borderRadius: 5 }}
+          style={{ borderRadius: 5, height: 260 }}
           src={webformatURL}
           alt={id}
           loading="lazyload"
